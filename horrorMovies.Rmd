@@ -1,0 +1,32 @@
+---
+title: "Horror Films"
+output:
+  github_document:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## Scraping Data
+
+```{r}
+library(rvest)
+
+topGrossingLink <- "https://en.wikipedia.org/wiki/List_of_highest-grossing_horror_films"
+
+horrorMovies <- read_html(topGrossingLink) %>% 
+  html_table(fill = TRUE) %>% 
+  `[[`(1)
+
+knitr::kable(horrorMovies)
+```
+
+## Plotting Data
+
+```{r}
+
+```
+
